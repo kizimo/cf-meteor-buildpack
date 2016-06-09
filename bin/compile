@@ -74,7 +74,8 @@ build() {
     meteor build --directory deploy --server http://localhost:3000
     cd deploy/bundle/programs/server
     status "Install meteor dependencies"
-    meteor npm install --force meteor-node-stubs faker ibm_db fibers lodash d3 nvd3 autoprefixer masonry-layout
+    meteor npm install
+    meteor npm install --force ibm_db
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
