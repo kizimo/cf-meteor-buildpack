@@ -78,7 +78,7 @@ build() {
     pwd
     ls -la
     status "Building meteor bundle"
-    meteor build --directory deploy --server http://localhost:3000
+    meteor build --directory deploy --server http://localhost:3000 --verbose
     pwd
     ls -la
     cd deploy/bundle/programs/server
