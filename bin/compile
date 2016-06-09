@@ -70,12 +70,19 @@ install_meteor() {
 build() {
   (
     cd $BUILD_DIR
-    status "Building meteor bundle"
-    meteor build --directory deploy --server http://localhost:3000
-    cd deploy/bundle/programs/server
+    pwd
+    ls -la
+    
     status "Install meteor dependencies"
     meteor npm install
     meteor npm install --force ibm_db
+    meteor npm install --force fibers lodash d3 nvd3 masonry-layout
+    meteor npm install --force faker
+    
+    status "Building meteor bundle"
+    meteor build --directory deploy --server http://localhost:3000
+    cd deploy/bundle/programs/server
+   
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
 }
