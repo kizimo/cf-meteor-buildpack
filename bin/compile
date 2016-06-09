@@ -74,7 +74,7 @@ build() {
     ls -la
     
     status "Install meteor dependencies"
-    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout
+    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
     pwd
     ls -la
     status "Building meteor bundle"
