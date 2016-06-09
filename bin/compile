@@ -77,7 +77,6 @@ build() {
     meteor npm install
     meteor npm install --force ibm_db
     meteor npm install --force fibers lodash d3 nvd3 masonry-layout
-    meteor npm install --force faker
     
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
