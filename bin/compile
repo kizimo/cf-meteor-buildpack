@@ -77,10 +77,19 @@ build() {
     meteor npm install
     meteor npm install --force ibm_db
     meteor npm install --force fibers lodash d3 nvd3 masonry-layout
-    
+    pwd
+    ls -la
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000
+    pwd
+    ls -la
     cd deploy/bundle/programs/server
+    pwd
+    ls -la
+    status "Installing npm dependencies"
+    npm install 2>&1 | indent
+    pwd
+    ls -la
    
     mv $BUILD_DIR/.vendor $BUILD_DIR/vendor
   )
