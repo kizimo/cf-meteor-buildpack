@@ -74,6 +74,7 @@ build() {
     ls -la
     
     status "Install meteor dependencies"
+    meteor npm config set production
     meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
     pwd
     ls -la
@@ -85,6 +86,7 @@ build() {
     pwd
     ls -la
     status "Installing npm dependencies"
+    npm config set production
     npm install 2>&1 | indent
     pwd
     ls -la
