@@ -85,13 +85,15 @@ build() {
     meteor build --directory deploy --server http://localhost:3000 --verbose
     pwd
     ls -lah
+    status "Install meteor dependencies"
+    npm config set production
+    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
     cd deploy/bundle/programs/server
     pwd
     ls -lah
     status "Installing npm dependencies"
     npm config set production
     npm install 2>&1 | indent
-    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
     pwd
     ls -la
    
