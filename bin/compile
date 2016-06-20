@@ -75,7 +75,8 @@ build() {
     
     status "Install meteor dependencies"
     meteor npm config set production
-    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
+    meteor npm install --force ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
+    meteor npm install --force autoprefixer
     pwd
     ls -la
     status "Building meteor bundle"
