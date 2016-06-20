@@ -40,6 +40,7 @@ install_node() {
 }
 
 install_meteor() {
+  status "is there an install dir? $INSTALL_TMPDIR"
   if [ -f "$METEOR_HOME/usr/bin/meteor" ] ; then
     status "Skipping Meteor installation. Already installed."
     return
@@ -100,6 +101,8 @@ build() {
 
 [ ! -d $BUILD_DIR ] && mkdir $BUILD_DIR
 [ ! -d $CACHE_DIR ] && mkdir $CACHE_DIR
+
+echo fs.inotify.max_user_watches=524288 | sudo tee -a /etc/sysctl.conf && sudo sysctl -p
 
 install_node
 install_meteor
