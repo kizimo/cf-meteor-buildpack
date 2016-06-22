@@ -74,20 +74,29 @@ build() {
     pwd
     ls -lah
     
-    #status "Install meteor dependencies"
-    #meteor npm config set production
-    ##meteor npm install --force ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
-    #meteor npm install --force meteor-node-stubs
-    #meteor npm install --force autoprefixer
-    #pwd
-    #ls -lah
+    status "Install meteor dependencies"
+    meteor npm config set production
+    meteor npm install --save ibm_db 
+    meteor npm install --save fibers
+    meteor npm install --save lodash 
+    meteor npm install --save d3
+    meteor npm install --save nvd3
+    meteor npm install --save masonry-layout 
+    meteor npm install --save meteor-node-stubs 
+    meteor npm install --save autoprefixer
+
+    pwd
+    ls -lah
+    
     status "Building meteor bundle"
     meteor build --directory deploy --server http://localhost:3000 --verbose
     pwd
     ls -lah
-    status "Install meteor dependencies"
-    npm config set production
-    meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
+    
+    #status "Install meteor dependencies"
+    #npm config set production
+    #meteor npm install --save ibm_db fibers lodash d3 nvd3 masonry-layout meteor-node-stubs autoprefixer
+    
     cd deploy/bundle/programs/server
     pwd
     ls -lah
